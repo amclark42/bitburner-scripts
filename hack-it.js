@@ -1,8 +1,7 @@
 /** @param {NS} ns **/
-//import {weakenTo} from "library.ns";
 /*
   Script to continuously hack a server. If the server's security goes 15 
-  above its original level, run the weaken.js script.
+  above its minimum level, run the weaken.js script.
 */
 export async function main(ns) {
   const serverName = ns.args[0],
