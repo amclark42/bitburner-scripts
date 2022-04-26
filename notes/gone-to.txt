@@ -1,0 +1,36 @@
+Hey again,
+
+You probably feel a little different. Hopefully good different! I dunno, I'm not you. Not anymore.
+
+You're probably looking at your stats, your empty coffers, and you're wondering where to go from here.
+
+Well, it's time to start again.
+
+* Get access to servers by running do-nuke.js. Start with n00dles.
+    * When choosing a target, look at the maximum money that server can hold, but also consider server 
+    growth property. If you can get a server to its maximum quickly, that's really good coin on 
+    subsequent hacks.
+    * Use what-about.js to find additional targets.
+* Start a cycle of growing the money on a server and hacking it, using grow-n-hack.js. Target a few 
+servers. Even if you don't get a lot of money right away, you can level your Hack skill pretty quickly.
+* Weaken a server's security level by running weaken.js. Multiple threads -> more effectiveness. This
+is also good for leveling Hack.
+    * Look for servers with lots of RAM and use them to run weaken.js in concentrated attacks on 
+    high-security servers.
+    * Servers with high RAM:
+        * zer0
+        * avmnite-2h
+        * silver-helix
+        * omega-net
+* Buy a Hacknet instance or two, to passively earn you some money. Level 'em when you can.
+* As soon as you can, buy a TOR router from Alpha Enterprises. That will give you access to the dark 
+web.
+* With the dark web accessible, you can start buying programs to open ports and hack more servers.
+* As starter jobs go, FoodNStuff isn't bad. You can level your STR/DEF/DEX/AGI a bit, and your CHA 
+a bunch.
+* Alpha Enterprises has a Software Engineering Intern position. It requires 100 Hacking, and you'll 
+have to work for 8 hours straight for maximum reputation. But it'll raise your Hack and CHA, get you
+some good coin, and after 1 day's work you can apply for the next level Software position.
+* Joining a city's faction will likely prevent you from joining other city factions.
+
+Best of luck. Not that you need it.
