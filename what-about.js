@@ -7,27 +7,28 @@
 import {formatNumber} from 'library.js';
 
 export async function main(ns) {
-  const serverName = ns.args[0];
-  if ( typeof serverName !== 'string' || serverName === 'help' ) {
-    ns.tprint("Usage: run what-about.js SERVER-NAME");
-    return;
-  } else if ( !ns.serverExists(serverName) ) {
-    ns.tprint("There is no server named "+serverName+"!");
-    return;
+  for (const serverName of ns.args) {
+    if ( typeof serverName !== 'string' || serverName === 'help' ) {
+      ns.tprint("Usage: run what-about.js SERVER-NAME");
+      return;
+    } else if ( !ns.serverExists(serverName) ) {
+      ns.tprint("There is no server named "+serverName+"!");
+      break;
+    }
+    const serverObj = ns.getServer(serverName);
+    var moneyNow = formatNumber(serverObj.moneyAvailable),
+      moneyMax = formatNumber(serverObj.moneyMax),
+      ramAvailable = serverObj.maxRam - serverObj.ramUsed;
+    ns.tprint(serverName.toUpperCase()+" INFO");
+    if ( !serverObj.hasAdminRights ) {
+      ns.tprint("  • Nukable at Hack level "+serverObj.requiredHackingSkill
+        +" when "+serverObj.numOpenPortsRequired+" port(s) are open");
+    }
+    ns.tprint("  • Money: "+moneyNow+" available out of a "+moneyMax+" maximum");
+    ns.tprint("  • Server growth: "+serverObj.serverGrowth);
+    ns.tprint("  • Security level (current): "+serverObj.hackDifficulty.toFixed(2));
+    ns.tprint("  • Security level (minimum): "+serverObj.minDifficulty);
+    ns.tprint("  • RAM: "+ramAvailable.toFixed(2)+"GB available out of "
+      +serverObj.maxRam.toFixed(2)+"GB");
   }
-  const serverObj = ns.getServer(serverName);
-  var moneyNow = formatNumber(serverObj.moneyAvailable),
-    moneyMax = formatNumber(serverObj.moneyMax),
-    ramAvailable = serverObj.maxRam - serverObj.ramUsed;
-  ns.tprint("Information about server '"+serverName+"'");
-  if ( !serverObj.hasAdminRights ) {
-    ns.tprint("• Nukable at Hack level "+serverObj.requiredHackingSkill
-      +" when "+serverObj.numOpenPortsRequired+" port(s) are open");
-  }
-  ns.tprint("• Money: "+moneyNow+" available out of a "+moneyMax+" maximum");
-  ns.tprint("• Server growth: "+serverObj.serverGrowth);
-  ns.tprint("• Security level (current): "+serverObj.hackDifficulty.toFixed(2));
-  ns.tprint("• Security level (minimum): "+serverObj.minDifficulty);
-  ns.tprint("• RAM: "+ramAvailable.toFixed(2)+"GB available out of "
-    +serverObj.maxRam.toFixed(2)+"GB");
 }

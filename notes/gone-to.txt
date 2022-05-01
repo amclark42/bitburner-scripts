@@ -26,11 +26,7 @@ is also good for leveling Hack.
 * As soon as you can, buy a TOR router from Alpha Enterprises. That will give you access to the dark 
 web.
 * With the dark web accessible, you can start buying programs to open ports and hack more servers.
-* As starter jobs go, FoodNStuff isn't bad. You can level your STR/DEF/DEX/AGI a bit, and your CHA 
-a bunch.
-* Alpha Enterprises has a Software Engineering Intern position. It requires 100 Hacking, and you'll 
-have to work for 8 hours straight for maximum reputation. But it'll raise your Hack and CHA, get you
-some good coin, and after 1 day's work you can apply for the next level Software position.
+* Travel to Volhaven for servers in a wide selection of sizes.
 * Joining a city's faction will likely prevent you from joining other city factions.
 
 Best of luck. Not that you need it.
