@@ -8,7 +8,8 @@ export async function main(ns) {
         securityThreshold = ns.args[1] !== undefined ? 
             ns.args[1] === 'min' ? ns.getServerMinSecurityLevel(serverName) : ns.args[1] 
             : ns.getServerMinSecurityLevel(serverName) + 10;
-    if ( typeof serverName !== 'string' || typeof securityThreshold !== 'integer' || serverName === 'help' ) {
+    if ( typeof serverName !== 'string' || typeof securityThreshold !== 'number' 
+            || serverName === 'help' ) {
         ns.tprint("Usage: run weaken.js [-t THREADS] SERVER-NAME [SECURITY-LEVEL]");
         ns.tprint("  The security level parameter value should be a number or the string 'min'.")
         ns.tprint("  If no security level is provided, the server will be weakened to its minimum + 10.")
