@@ -4,8 +4,8 @@
   security goes 15 above its minimum level, run the weaken.js script.
 */
 export async function main(ns) {
-  const serverName = ns.args[0],
-    canWeaken = ns.fileExists('weaken.js');
+  const serverName = ns.args[0];
+  var canWeaken = ns.fileExists('weaken.js');
   if ( typeof serverName !== 'string' || serverName === 'help' ) {
     ns.tprint("Usage: run grow-n-hack.js [-t THREADS] SERVER-NAME");
     return;
@@ -32,8 +32,13 @@ export async function main(ns) {
     // If the security gets too high, run weaken.js.
     if ( !safetyRelease && ns.getServerSecurityLevel(serverName) >= securityThreshold ) {
       safetyRelease = true;
-      if ( canWeaken && !ns.isRunning('weaken.js', ns.getHostname(0), 2, serverName, minSecurity) ) {
-        ns.run('weaken.js', 2, serverName, minSecurity);
+      if ( canWeaken && !ns.isRunning('weaken.js', ns.getHostname(0), 2, serverName, 'min') ) {
+        try {
+          ns.run('weaken.js', 2, serverName, minSecurity);
+        } catch {
+          ns.tprint("Can't run weaken.js!");
+          canWeaken = false;
+        }
       }
     }
     await ns.sleep(1000);
