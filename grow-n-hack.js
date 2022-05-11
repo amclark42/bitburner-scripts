@@ -3,6 +3,8 @@
   Script to grow the money on a server 10 times, then hack. If the server's 
   security goes 15 above its minimum level, run the weaken.js script.
 */
+import {formatNumber} from './library.js';
+
 export async function main(ns) {
   const serverName = ns.args[0];
   var canWeaken = ns.fileExists('weaken.js');
@@ -10,24 +12,24 @@ export async function main(ns) {
     ns.tprint("Usage: run grow-n-hack.js [-t THREADS] SERVER-NAME");
     return;
   } else if ( !ns.serverExists(serverName) ) {
-    ns.tprint("There is no server named "+serverName+"!");
+    ns.tprint("There is no server named '"+serverName+"'!");
     return;
   } else if ( !canWeaken ) {
     ns.tprint("This server does not have a copy of weaken.js. Proceeding anyway.");
   }
   const minSecurity = ns.getServerMinSecurityLevel(serverName),
-    origSecurity = ns.getServerSecurityLevel(serverName),
     securityThreshold = minSecurity + 15,
     maxMoney = ns.getServerMaxMoney(serverName),
     moneyThreshold = 1000;
   var currentMoney = ns.getServerMoneyAvailable(serverName),
       safetyRelease = false;
-  ns.tprint("Money on server " + serverName + ": " + currentMoney + " / " + maxMoney);
+  ns.tprint("Money on server '" + serverName + "': " 
+    + formatNumber(currentMoney) + " / " + formatNumber(maxMoney));
   while (currentMoney > moneyThreshold) {
     // Increase the amount of money available on the server by running grow() x 10.
     for (var i = 0; i < 10; i++) {
-        await ns.grow(serverName);
         if ( ns.getServerMoneyAvailable(serverName) === maxMoney ) break;
+        await ns.grow(serverName);
     }
     // If the security gets too high, run weaken.js.
     if ( !safetyRelease && ns.getServerSecurityLevel(serverName) >= securityThreshold ) {

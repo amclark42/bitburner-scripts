@@ -3,6 +3,8 @@
   Script to continuously hack a server. If the server's security goes 15 
   above its minimum level, run the weaken.js script.
 */
+import {formatNumber} from './library.js';
+
 export async function main(ns) {
   const serverName = ns.args[0],
     canWeaken = ns.fileExists('weaken.js');
@@ -23,7 +25,8 @@ export async function main(ns) {
     moneyThreshold = 1000;
   var currentMoney = ns.getServerMoneyAvailable(serverName),
       safetyRelease = false;
-  ns.tprint("Money on server " + serverName + ": " + currentMoney + " / " + maxMoney);
+  ns.tprint("Money on server '" + serverName + "': " 
+    + formatNumber(currentMoney) + " / " + formatNumber(maxMoney));
   while (currentMoney > moneyThreshold) {
     // Hack!
     await ns.hack(serverName);

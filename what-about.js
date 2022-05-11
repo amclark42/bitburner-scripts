@@ -4,7 +4,7 @@
   
   See https://github.com/danielyxie/bitburner/blob/dev/markdown/bitburner.server.md
 */
-import {formatNumber} from 'library.js';
+import {formatNumber} from './library.js';
 
 export async function main(ns) {
   for (const serverName of ns.args) {
