@@ -10,7 +10,7 @@ export async function main(ns) {
     currentMoney = ns.getServerMoneyAvailable(serverName);
   const moneyThreshold = 1000;
   ns.tprint("Money on server '" + serverName + "': " + formatNumber(currentMoney));
-  while (currentMoney > moneyThreshold && securityLvl < 40) {
+  while (currentMoney > moneyThreshold) {
     // Hack!
     await ns.hack(serverName);
     await ns.sleep(250000);
