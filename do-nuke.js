@@ -8,8 +8,11 @@ export function canNuke(ns, serverName) {
 
 export async function main(ns) {
   for (const serverName of ns.args) {
+    if ( ns.hasRootAccess(serverName) ) {
+      ns.tprint("Already NUKEd '"+serverName+"'");
+    }
     // If it looks like the server is NUKEable, do it!
-    if ( canNuke(ns, serverName) ) {
+    else if ( canNuke(ns, serverName) ) {
       ns.nuke(serverName);
       var message = ns.hasRootAccess(serverName) 
         ? "Successful NUKE" : "Failed to NUKE";

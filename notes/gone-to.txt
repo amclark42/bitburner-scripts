@@ -6,7 +6,8 @@ You're probably looking at your stats, your empty coffers, and you're wondering 
 
 Well, it's time to start again.
 
-* Get access to servers by running do-nuke.js. Start with n00dles.
+* Get a head-start on things by running start-again.js, which automates some of the advice below.
+* Get access to servers by running do-nuke.js.
     * When choosing a target, look at the maximum money that server can hold, but also consider server 
     growth property. If you can get a server to its maximum quickly, that's really good coin on 
     subsequent hacks.
@@ -26,7 +27,9 @@ is also good for leveling Hack.
 * As soon as you can, buy a TOR router from Alpha Enterprises. That will give you access to the dark 
 web.
 * With the dark web accessible, you can start buying programs to open ports and hack more servers.
-* Travel to Volhaven for servers in a wide selection of sizes.
-* Joining a city's faction will likely prevent you from joining other city factions.
+* Travel to Volhaven, Ishima, or Aevum for servers in a wide selection of sizes.
+* Joining a regional faction *may* prevent you from joining other regional factions. You already have 
+all the augmentations from:
+    * Tuan Di Hui
 
 Best of luck. Not that you need it.
