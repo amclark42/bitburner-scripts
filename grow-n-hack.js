@@ -20,7 +20,7 @@ export async function main(ns) {
   const minSecurity = ns.getServerMinSecurityLevel(serverName),
     securityThreshold = minSecurity + 15,
     maxMoney = ns.getServerMaxMoney(serverName),
-    moneyThreshold = 1000;
+    moneyThreshold = 500;
   var currentMoney = ns.getServerMoneyAvailable(serverName),
       safetyRelease = false;
   ns.tprint("Money on server '" + serverName + "': " 
@@ -28,15 +28,15 @@ export async function main(ns) {
   while (currentMoney > moneyThreshold) {
     // Increase the amount of money available on the server by running grow() x 10.
     for (var i = 0; i < 10; i++) {
-        if ( ns.getServerMoneyAvailable(serverName) === maxMoney ) break;
+        if ( currentMoney === maxMoney ) break;
         await ns.grow(serverName);
     }
     // If the security gets too high, run weaken.js.
     if ( !safetyRelease && ns.getServerSecurityLevel(serverName) >= securityThreshold ) {
       safetyRelease = true;
-      if ( canWeaken && !ns.isRunning('weaken.js', ns.getHostname(0), 2, serverName, 'min') ) {
+      if ( canWeaken && !ns.isRunning('weaken.js', ns.getHostname(), 2, serverName, 'min') ) {
         try {
-          ns.run('weaken.js', 2, serverName, minSecurity);
+          ns.run('weaken.js', 2, serverName, 'min');
         } catch {
           ns.tprint("Can't run weaken.js!");
           canWeaken = false;

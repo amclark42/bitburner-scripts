@@ -4,7 +4,7 @@ export function canNuke(ns, serverName) {
   const serverObj = ns.getServer(serverName);
   return !serverObj.hasAdminRights 
     && serverObj.openPortCount >= serverObj.numOpenPortsRequired;
-}
+} // END canNuke()
 
 export async function main(ns) {
   for (const serverName of ns.args) {
@@ -61,6 +61,7 @@ export async function main(ns) {
         }
         p++;
       }
+      // Try to NUKE.
       if ( ns.getServer(serverName).openPortCount >= totalPortsNeeded ) {
         ns.nuke(serverName);
         if ( ns.hasRootAccess(serverName) ) {

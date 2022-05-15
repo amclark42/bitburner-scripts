@@ -12,14 +12,14 @@ export async function main(ns) {
       ns.tprint("Usage: run what-about.js SERVER-NAME");
       return;
     } else if ( !ns.serverExists(serverName) ) {
-      ns.tprint("There is no server named "+serverName+"!");
+      ns.tprint("There is no server named '"+serverName+"'!");
       break;
     }
     const serverObj = ns.getServer(serverName);
     var moneyNow = formatNumber(serverObj.moneyAvailable),
       moneyMax = formatNumber(serverObj.moneyMax),
       ramAvailable = serverObj.maxRam - serverObj.ramUsed;
-    ns.tprint(serverName.toUpperCase()+" INFO");
+    ns.tprint("INFO ON "+serverName.toUpperCase());
     if ( !serverObj.hasAdminRights ) {
       ns.tprint("  • Nukable at Hack level "+serverObj.requiredHackingSkill
         +" when "+serverObj.numOpenPortsRequired+" port(s) are open");

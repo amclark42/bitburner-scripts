@@ -1,6 +1,6 @@
 /** @param {NS} ns */
 /*
-  Determine the quickest route to connect to another server. Backdoors are taken 
+  Find a quick route between the current server and another. Backdoors are taken 
   into account.
 */
 export function surveyConnections(ns, serverName, destination, route, previousServer) {

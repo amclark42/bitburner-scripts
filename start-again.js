@@ -21,8 +21,8 @@ export async function main(ns) {
   // Purchase a few Hacknet nodes and upgrade them.
   for (var n = 0; n <= 2; n++) {
     const node = ns.hacknet.purchaseNode();
-    // On a fresh playthrough, this script shouldn't hit the maximum of Hacknet 
-      // nodes, but handling a potential error is useful for testing purposes.
+    // If the limit on Hacknet nodes has been reached, or there isn't enough money, 
+      // stop looping early.
     if ( node === -1 ) break;
     const lvlCost = ns.hacknet.getLevelUpgradeCost(node, 9);
     if ( ns.getServerMoneyAvailable('home') > lvlCost ) {
@@ -46,8 +46,10 @@ export async function main(ns) {
     if ( ! ns.isRunning('grow-n-hack.js', currentServer, target) ) {
       ns.run('grow-n-hack.js', 2, target);
     }
+    // Run grow-and-hack.js on the target server with 3 threads, which leaves enough 
+      // space for weaken.js to run with 2 threads, later.
     if ( ! ns.isRunning('grow-n-hack.js', target, target) ) {
-      ns.exec('grow-n-hack.js', target, 2, target);
+      ns.exec('grow-n-hack.js', target, 3, target);
     }
   }
 }

@@ -31,5 +31,6 @@ web.
 * Joining a regional faction *may* prevent you from joining other regional factions. You already have 
 all the augmentations from:
     * Tuan Di Hui
+    * Aevum
 
 Best of luck. Not that you need it.
