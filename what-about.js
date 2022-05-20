@@ -6,10 +6,14 @@
 */
 import {formatNumber} from './library.js';
 
+export function autocomplete(data, args) {
+  return [...data.servers];
+}
+
 export async function main(ns) {
   for (const serverName of ns.args) {
     if ( typeof serverName !== 'string' || serverName === 'help' ) {
-      ns.tprint("Usage: run what-about.js SERVER-NAME");
+      ns.tprint("Usage: run what-about.js SERVER-NAME [SERVER-NAME2 [...]]");
       return;
     } else if ( !ns.serverExists(serverName) ) {
       ns.tprint("There is no server named '"+serverName+"'!");

@@ -1,4 +1,12 @@
 /** @param {NS} ns **/
+/*
+  NUKE 1 or more servers, after first opening the necessary ports.
+*/
+
+export function autocomplete(data, args) {
+  return [...data.servers];
+}
+
 // Do I have root access? If not, can I get it?
 export function canNuke(ns, serverName) {
   const serverObj = ns.getServer(serverName);

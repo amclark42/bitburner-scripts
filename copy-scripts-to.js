@@ -2,6 +2,11 @@
 /*
   Copy scripts from the current server to another.
 */
+
+export function autocomplete(data, args) {
+  return [...data.servers, ...data.scripts];
+}
+
 export async function main(ns) {
   const recipientName = ns.args[0],
     defaultFiles = ['library.js', 'weaken.js', 'grow-n-hack.js', 'hack-me.js', 'what-about.js'],

@@ -38,7 +38,7 @@ export async function main(ns) {
         try {
           ns.run('weaken.js', 2, serverName, 'min');
         } catch {
-          ns.tprint("Can't run weaken.js!");
+          ns.print("Can't run weaken.js!");
           canWeaken = false;
         }
       }
