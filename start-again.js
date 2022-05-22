@@ -40,6 +40,7 @@ export async function main(ns) {
     }
     ns.run('copy-scripts-to.js', 1, target);
     ns.run('do-nuke.js', 1, target);
+    await ns.sleep(100);
     if ( ns.getServerSecurityLevel(target) > ns.getServerMinSecurityLevel(target) ) {
       ns.run('weaken.js', 4, target, 'min');
     }

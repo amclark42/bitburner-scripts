@@ -6,10 +6,6 @@
 */
 import {formatNumber} from './library.js';
 
-export function autocomplete(data, args) {
-  return [...data.servers];
-}
-
 export async function main(ns) {
   for (const serverName of ns.args) {
     if ( typeof serverName !== 'string' || serverName === 'help' ) {

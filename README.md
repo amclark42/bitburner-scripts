@@ -49,9 +49,5 @@ All of these scripts will describe their expected usages when `help` is used as 
 alias what-about="run what-about.js"
 alias path-to="run get-path-to.js"
 alias establish="run establish-cohort.js"
-alias -g first-cohort="n00dles joesguns nectar-net hong-fang-tea harakiri-sushi"
-alias -g second-cohort="silver-helix the-hub netlink summit-uni catalyst computek rothman-uni"
-alias -g third-cohort="lexo-corp syscore global-pharm alpha-ent unitalife nova-med univ-energy"
-alias -g fourth-cohort="omnia galactic-cyber taiyang-digital zeus-med zb-institute icarus solaris"
-alias -g fifth-cohort="microdyne vitalife 4sigma applied-energetics aerocorp"
+alias -g first-cohort="n00dles sigma-cosmetics joesguns nectar-net hong-fang-tea harakiri-sushi"
 ```

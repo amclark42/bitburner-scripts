@@ -23,14 +23,23 @@ is also good for leveling Hack.
         * avmnite-2h
         * silver-helix
         * omega-net
+* Create groups of servers that weaken and hack each other. Use establish-cohort.js (aliased to 
+"establish") to get the cohort started.
+    * It's helpful to use aliases to keep track of which servers belong to which cohort. The "global" 
+    option will give you tab completion for a cohort's name. This is especially useful in combination 
+    with what-about.js.
 * Buy a Hacknet instance or two, to passively earn you some money. Level 'em when you can.
-* As soon as you can, buy a TOR router from Alpha Enterprises. That will give you access to the dark 
-web.
-* With the dark web accessible, you can start buying programs to open ports and hack more servers.
+* If you’ve got money coming in at a good clip, buy a TOR router from Alpha Enterprises ASAP. That will 
+give you access to the dark web.
+    * With the dark web accessible, you can start buying programs to open ports and hack more servers.
+    * If you have no augmentations, save your money and write the programs yourself. It’s also a good 
+    way to level Intelligence!
 * Travel to Volhaven, Ishima, or Aevum for servers in a wide selection of sizes.
-* Joining a regional faction *may* prevent you from joining other regional factions. You already have 
-all the augmentations from:
-    * Tuan Di Hui
-    * Aevum
+* Joining a regional faction *may* prevent you from joining other regional factions.
+* If you’ve installed an augmentation or two, aim for the Neuroreceptor Management Implant, which 
+removes the penalty for not focusing on a task. It’s exclusive to the Tian Di Hui faction and costs 
+$1.10b with no multiplier, plus 75k faction reputation.
+    * Tian Di Hui also offers a lot of augmentations for boosting your Charisma and reputation gain, 
+    which can speed up the process of getting access to other augmentations.
 
 Best of luck. Not that you need it.

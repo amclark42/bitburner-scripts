@@ -4,12 +4,9 @@
   to spare) run weaken.js on them.
 */
 
-export function autocomplete(data, args) {
-  return [...data.servers];
-}
-
 export async function main(ns) {
-  const weakenMemReq = 2.05,
+  const memReqWeaken = ns.getScriptRam('weaken.js'),
+    memReqGrowNHack = ns.getScriptRam('grow-n-hack.js'),
     homeWeakenThreads = 10;
   let cohortMembers = [];
   for (const serverName of ns.args) {
@@ -28,21 +25,29 @@ export async function main(ns) {
     }
     // Start weakening the server.
     const serverObj = ns.getServer(serverName);
-    let usedRAM = serverObj.ramUsed;
+    let procId,
+      usedRAM = serverObj.ramUsed;
+    // Run scripts on home.
     if ( !ns.isRunning('weaken.js', 'home', serverName, 'min') ) {
       ns.exec('weaken.js', 'home', homeWeakenThreads, serverName, 'min');
     }
+    // If the target server has RAM to spare, run scripts on it.
     if ( serverObj.maxRam > 0 ) {
       ns.exec('copy-scripts-to.js', 'home', 1, serverName);
       await ns.sleep(100);
+      // Have the target server weaken, grow, and hack itself.
       if ( !ns.isRunning('weaken.js', serverName, serverName, 'min') ) {
-        const weakenThreads = serverObj.maxRam - usedRAM > weakenMemReq * 4 
+        const weakenThreads = serverObj.maxRam - usedRAM > memReqWeaken * 4 
           ? 4 : 2;
-        ns.exec('weaken.js', serverName, weakenThreads, serverName, 'min');
-        usedRAM = usedRAM + ( weakenMemReq * weakenThreads );
-        ns.tprint("RAM left on '"+serverName+"' after running weaken.js with "
-          +weakenThreads+" threads: "+(serverObj.maxRam - usedRAM));
+        procId = ns.exec('weaken.js', serverName, weakenThreads, serverName, 'min');
+        usedRAM = procId > 0 ? usedRAM + ( memReqWeaken * weakenThreads ) : usedRAM;
       }
+      if ( !ns.isRunning('grow-n-hack.js', serverName, serverName) ) {
+        procId = ns.exec('grow-n-hack.js', serverName, 2, serverName);
+        usedRAM = procId > 0 ? usedRAM + (memReqGrowNHack * 2) : usedRAM;
+      }
+      // TODO Have the server start weakening its cohorts.
+      ns.tprint("RAM left on '"+serverName+"': "+(serverObj.maxRam - usedRAM));
     }
   }
   ns.tprint('Cohort members: "'+cohortMembers.join(" ")+'"');
