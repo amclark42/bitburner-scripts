@@ -7,8 +7,16 @@
 export async function main(ns) {
   const memReqWeaken = ns.getScriptRam('weaken.js'),
     memReqGrowNHack = ns.getScriptRam('grow-n-hack.js'),
-    homeWeakenThreads = 10;
-  let cohortMembers = [];
+    memReqNuke = ns.getScriptRam('do-nuke.js'),
+    homeWeakenThreads = 4;
+  let cohortMembers = [],
+    homeRamAvailable = ns.getServerMaxRam('home') - ns.getServerUsedRam('home');
+  // Make sure there's enough RAM to run do-nuke.js.
+  if ( homeRamAvailable < memReqNuke ) {
+    ns.tprint("ERROR: There isn't enough RAM on 'home' to run 'do-nuke.js'!");
+    return;
+  }
+  homeRamAvailable = homeRamAvailable - memReqNuke;
   for (const serverName of ns.args) {
     if ( typeof serverName !== 'string' || serverName === 'help' ) {
       ns.tprint("Usage: run establish-cohort.js SERVER-NAME [SERVER-NAME2 [...]]");
@@ -28,7 +36,8 @@ export async function main(ns) {
     let procId,
       usedRAM = serverObj.ramUsed;
     // Run scripts on home.
-    if ( !ns.isRunning('weaken.js', 'home', serverName, 'min') ) {
+    if ( !ns.isRunning('weaken.js', 'home', serverName, 'min') 
+        && homeRamAvailable > memReqWeaken * homeWeakenThreads ) {
       ns.exec('weaken.js', 'home', homeWeakenThreads, serverName, 'min');
     }
     // If the target server has RAM to spare, run scripts on it.

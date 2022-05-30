@@ -46,8 +46,10 @@ All of these scripts will describe their expected usages when `help` is used as 
 ## My aliases
 
 ```
+alias exit="home"
 alias what-about="run what-about.js"
 alias path-to="run get-path-to.js"
 alias establish="run establish-cohort.js"
 alias -g first-cohort="n00dles sigma-cosmetics joesguns nectar-net hong-fang-tea harakiri-sushi"
+alias -g milestones="CSEC avmnite-02h I.I.I.I run4theh111z"
 ```

@@ -36,6 +36,8 @@ give you access to the dark web.
     way to level Intelligence!
 * Travel to Volhaven, Ishima, or Aevum for servers in a wide selection of sizes.
 * Joining a regional faction *may* prevent you from joining other regional factions.
+* The Sector-12 faction offers the CashRoot Starter Kit augmentation at $250m (no multiplier) with 12.5k 
+reputation. This lets you start over with $1m and BruteSSH.exe.
 * If you’ve installed an augmentation or two, aim for the Neuroreceptor Management Implant, which 
 removes the penalty for not focusing on a task. It’s exclusive to the Tian Di Hui faction and costs 
 $1.10b with no multiplier, plus 75k faction reputation.
