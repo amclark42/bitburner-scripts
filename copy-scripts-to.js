@@ -9,7 +9,8 @@ export function autocomplete(data, args) {
 
 export async function main(ns) {
   const recipientName = ns.args[0],
-    defaultFiles = ['library.js', 'weaken.js', 'grow-n-hack.js', 'hack-me.js', 'what-about.js'],
+    defaultFiles = ['library.js', 'weaken.js', 'grow-n-hack.js', 'hack-me.js', 'hack-it.js', 
+      'what-about.js'],
     files = ns.args.slice(1).length > 0 ? ns.args.slice(1) : defaultFiles;
   if (typeof recipientName !== 'string' || recipientName === 'help') {
     ns.tprint("Usage: run copy-scripts-to.js [-t THREADS] SERVER-NAME [SCRIPT1 [SCRIPT2 ...]]");

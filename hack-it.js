@@ -7,10 +7,12 @@ import {formatNumber} from './library.js';
 
 export async function main(ns) {
   const serverName = ns.args[0],
-    canWeaken = ns.fileExists('weaken.js');
+    canWeaken = ns.fileExists('weaken.js'),
+    hackInterval = ns.args[1] || 250000;
   var securityLvl = ns.getServerSecurityLevel(serverName);
-  if ( !typeof serverName === 'string' || serverName === 'help' ) {
-    ns.tprint("Usage: run hack-it.js [-t THREADS] SERVER-NAME");
+  if ( !typeof serverName === 'string' || serverName === 'help' 
+      || !typeof hackInterval === 'number' ) {
+    ns.tprint("Usage: run hack-it.js [-t THREADS] SERVER-NAME [INTERVAL-IN-MS]");
     return;
   } else if ( !ns.serverExists(serverName) ) {
     ns.tprint("There is no server named '"+serverName+"'!");
@@ -42,6 +44,6 @@ export async function main(ns) {
       break;
     }
     currentMoney = ns.getServerMoneyAvailable(serverName);
-    await ns.sleep(250000);
+    await ns.sleep(hackInterval);
   }
 }
