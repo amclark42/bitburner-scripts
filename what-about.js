@@ -15,14 +15,19 @@ export async function main(ns) {
       ns.tprint("There is no server named '"+serverName+"'!");
       break;
     }
-    const serverObj = ns.getServer(serverName);
-    var moneyNow = formatNumber(serverObj.moneyAvailable),
+    const serverObj = ns.getServer(serverName),
+      playerHackLvl = ns.getHackingLevel(),
+      isNuked = serverObj.hasAdminRights,
+      moneyNow = formatNumber(serverObj.moneyAvailable),
       moneyMax = formatNumber(serverObj.moneyMax),
       ramAvailable = serverObj.maxRam - serverObj.ramUsed;
     ns.tprint("INFO ON "+serverName.toUpperCase());
-    if ( !serverObj.hasAdminRights ) {
-      ns.tprint("  • Nukable at Hack level "+serverObj.requiredHackingSkill
-        +" when "+serverObj.numOpenPortsRequired+" port(s) are open");
+    if ( !isNuked ) {
+      ns.tprint("  • Nukable when "+serverObj.numOpenPortsRequired+" port(s) are open");
+    }
+    if ( playerHackLvl < serverObj.requiredHackingSkill ) {
+      const addMsg = !isNuked ? " after nuking" : '';
+      ns.tprint("  • Hackable at level "+serverObj.requiredHackingSkill+addMsg);
     }
     ns.tprint("  • Money: "+moneyNow+" available out of a "+moneyMax+" maximum");
     ns.tprint("  • Server growth: "+serverObj.serverGrowth);

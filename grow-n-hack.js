@@ -53,9 +53,13 @@ export async function main(ns) {
     if ( safetyRelease && ns.getServerSecurityLevel(serverName) <= securityThreshold ) {
       safetyRelease = false;
     }
-    // Hack!
+    // Hack! (or try to, anyway)
     if ( !safetyRelease ) {
-      await ns.hack(serverName);
+      try {
+        await ns.hack(serverName);
+      } catch {
+        ns.tprint("Cannot hack '"+serverName+"'. Proceeding...")
+      }
     }
     await ns.sleep(100);
   }

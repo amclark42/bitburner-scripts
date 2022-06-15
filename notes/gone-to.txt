@@ -7,10 +7,16 @@ You're probably looking at your stats, your empty coffers, and you're wondering 
 Well, it's time to start again.
 
 * Get a head-start on things by running start-again.js, which automates some of the advice below.
-* Get access to servers by running do-nuke.js.
-    * When choosing a target, look at the maximum money that server can hold, but also consider server 
-    growth property. If you can get a server to its maximum quickly, that's really good coin on 
-    subsequent hacks.
+* Nuking a server gets you admin access, meaning you can run scripts on the server.
+    * You do *not* need a high Hack skill to NUKE the server!
+    * You *do* need to meet the server's Hack skill requirement in order to hack it, or to get backdoor 
+    access.
+    * Nuke a server when you have enough programs to open its ports. Even if you don't have the Hack 
+    skill to get money from it, you can weaken it and use its computing power to target other servers.
+    * The script do-nuke.js automates opening ports and nuking 1+ server(s).
+* When choosing a target server, look at the maximum money that server can hold, but also consider 
+server growth property. If you can get a server to its maximum quickly, that's really good coin on 
+subsequent hacks.
     * Use what-about.js to find additional targets.
 * Start a cycle of growing the money on a server and hacking it, using grow-n-hack.js. Target a few 
 servers. Even if you don't get a lot of money right away, you can level your Hack skill pretty quickly.
@@ -32,8 +38,8 @@ is also good for leveling Hack.
 * If you’ve got money coming in at a good clip, buy a TOR router from Alpha Enterprises ASAP. That will 
 give you access to the dark web.
     * With the dark web accessible, you can start buying programs to open ports and hack more servers.
-    * If you have no augmentations, save your money and write the programs yourself. It’s also a good 
-    way to level Intelligence!
+    * If you have no/few augmentations, save your money and write the programs yourself. It’s also a 
+    good way to level Intelligence!
 * Travel to Volhaven, Ishima, or Aevum for servers in a wide selection of sizes.
 * Joining a regional faction *may* prevent you from joining other regional factions.
 * The Sector-12 faction offers the CashRoot Starter Kit augmentation at $250m (no multiplier) with 12.5k 

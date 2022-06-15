@@ -36,7 +36,7 @@ All of these scripts will describe their expected usages when `help` is used as 
 * [`weaken.js`](./weaken.js): Continuously weakens a server’s security level. By default, it stops at the server’s minimum security level + 10, but you can specify otherwise.
 * [`grow-n-hack.js`](./grow-n-hack.js): Grows the amount of money on a server a maximum of 10 times before hacking. The grow loop cuts out early if the server reaches its maximum amount of money. If `weaken.js` is available, this script will try to run it if the security level gets 15 above the minimum.
 * [`hack-it.js`](./hack-it.js): Continuously hacks a server in set intervals. If `weaken.js` is available, this script will try to run it if the security level gets 15 above the minimum.
-* [`hack-me.js`](./hack-me.js): Continuously hacks the server this script is running on, in set intervals. This is an extremely pared-down script that does not test the server’s security levels. As a result, it can be run on n00dles with 2 threads, for 3.90GB RAM.
+* [`hack-me.js`](./hack-me.js): Continuously hacks the server this script is running on, in set intervals. This is an extremely pared-down script that does not test the server’s security levels. As a result, it can be run on n00dles with 2 threads, for 3.70GB RAM.
 * [`copy-scripts-to.js`](./copy-scripts-to.js): Copies 1 or more scripts from the current server to another. Useful since Bitburner’s `scp` terminal command doesn’t move multiple files at once. If no filenames are given in the program arguments, the scripts I use most often are copied over.
 * [`start-again.js`](./start-again.js): Begin hacking low-level servers and buying Hacknet nodes. Intended to be run after installing augmentations.
 * [`get-path-to.js`](./get-path-to.js): Finds a quick route from the current server to a given destination, taking backdoors into account.
@@ -51,5 +51,5 @@ alias what-about="run what-about.js"
 alias path-to="run get-path-to.js"
 alias establish="run establish-cohort.js"
 alias -g first-cohort="n00dles sigma-cosmetics joesguns nectar-net hong-fang-tea harakiri-sushi"
-alias -g milestones="CSEC avmnite-02h I.I.I.I run4theh111z"
+alias -g waypoints="CSEC avmnite-02h I.I.I.I run4theh111z"
 ```
